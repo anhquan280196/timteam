@@ -44,9 +44,26 @@
 		                    <li><a href="#">Sân bóng tại HCM</a></li>
 		                </ul>
 		            </li>
-		            <li class="active" data-toggle="modal" data-target="#login">
-		                <a href="#">ĐĂNG NHẬP</a>
-		            </li>
+		            <li class="active">
+					    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					    	<span class="caret">abc</span>
+					    </a>
+					    <ul class="dropdown-menu" aria-labelledby="about-us">
+					        <li><a href="#">Lịch sử đặt sân</a></li>
+					        <li class="divider"></li>
+					        <li><a href="#">Quản lí đội bóng</a></li>
+					        <li class="divider"></li>
+					        <li><a href="#">Quản lí sân</a></li>
+					        <li class="divider"></li>
+					        <li>
+					            <form role="form" action="AccountController?action=logout" method="POST">                                            
+					                <a href="#">
+					                    <input class="btn bg-success" type="submit" value="Đăng xuất" style="margin-left: 15px"/>  
+					                </a>
+					            </form>
+					        </li>
+					    </ul>
+					</li>
 		        </ul>
 		    </div>
 		</div>
