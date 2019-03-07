@@ -18,33 +18,32 @@ public class AccountDAOImpl implements AccountDAO {
 	public void insertAccount(Account param) {
 		entityManager.persist(param);
 	}
-	
+
 	@Override
 	public Account checkPhoneNumber(String phoneNumber) {
-		return entityManager
-				.createQuery("SELECT a FROM Account a WHERE a.phoneNumber = :phoneNumber",
-						Account.class)
-				.setParameter("phoneNumber", phoneNumber)
-				.getSingleResult();
+		return entityManager.createQuery("SELECT a FROM Account a WHERE a.phoneNumber = :phoneNumber", Account.class)
+				.setParameter("phoneNumber", phoneNumber).getSingleResult();
 	}
 
 	@Override
 	public Account checkEmail(String email) {
-		return entityManager
-				.createQuery("SELECT a FROM Account a WHERE a.email = :email",
-						Account.class)
-				.setParameter("email", email)
-				.getSingleResult();
+		return entityManager.createQuery("SELECT a FROM Account a WHERE a.email = :email", Account.class)
+				.setParameter("email", email).getSingleResult();
 	}
 
 	@Override
 	public Account login(Account param) {
-		return entityManager
-				.createQuery("SELECT a FROM Account a WHERE a.phoneNumber = :phoneNumber AND a.password = :password",
-						Account.class)
-				.setParameter("phoneNumber", param.getPhoneNumber())
-				.setParameter("password", param.getPassword())
-				.getSingleResult();
+		try {
+			Account account = entityManager
+					.createQuery(
+							"SELECT a FROM Account a WHERE a.phoneNumber = :phoneNumber AND a.password = :password",
+							Account.class)
+					.setParameter("phoneNumber", param.getPhoneNumber()).setParameter("password", param.getPassword())
+					.getSingleResult();
+			return account;
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

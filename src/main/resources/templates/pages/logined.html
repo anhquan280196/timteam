@@ -46,7 +46,7 @@
 		            </li>
 		            <li class="active">
 					    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-					    	<span class="caret">abc</span>
+					    	<span class="caret" th:text="${session.account.phoneNumber}"></span>
 					    </a>
 					    <ul class="dropdown-menu" aria-labelledby="about-us">
 					        <li><a href="#">Lịch sử đặt sân</a></li>
@@ -56,11 +56,9 @@
 					        <li><a href="#">Quản lí sân</a></li>
 					        <li class="divider"></li>
 					        <li>
-					            <form role="form" action="AccountController?action=logout" method="POST">                                            
-					                <a href="#">
-					                    <input class="btn bg-success" type="submit" value="Đăng xuất" style="margin-left: 15px"/>  
-					                </a>
-					            </form>
+				                <a th:href="@{/logout}">
+				                    <input class="btn bg-success" type="submit" value="Đăng xuất" style="margin-left: 15px"/>  
+				                </a>
 					        </li>
 					    </ul>
 					</li>
@@ -191,9 +189,6 @@
 	        <input id="btnLogin" class="btn btn-lg btn-primary btn-block" type="submit" value="Đăng nhập"/>
 	    </div>
 	</div>
-	
-	<!-- jQuery  -->
-	<!-- <script th:src="@{/js/jquery-1.11.3.min.js}"></script> -->
 	
 	<!-- Bootstrap Core JavaScript  -->
 	<script th:src="@{/js/bootstrap.min.js}"></script>

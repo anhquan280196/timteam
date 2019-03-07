@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import timteam.web.dao.AccountDAO;
+import timteam.web.exception.ValidationException;
 import timteam.web.model.Account;
 import timteam.web.service.AccountService;
 
@@ -23,8 +24,8 @@ public class TimteamApplicationTests {
 	private AccountDAO accountDAO;
 
 	@Test
-	public void testLogin() {
-		assertNotNull(accountDAO.login(new Account("1", "1", "1", "1")));
+	public void testLogin() throws ValidationException {
+		assertNotNull(accountService.login(new Account("11", "11", "11", "1")));
 	}
 
 //	@Test

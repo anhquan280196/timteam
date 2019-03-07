@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link th:href="@{/css/bootstrap.min.css}" href="/css/bootstrap.min.css" rel="stylesheet">
-	<link th:href="@{/css/custom.css}" href="/css/custom.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+	<link th:href="@{/css/custom.css}" rel="stylesheet">
+	<link th:href="@{/css/fonts-google.css}" rel='stylesheet'>
 	<title>TIMTEAM</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script th:src="@{/lib/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/lib/js/jquery.validate.min.js}"></script>
 	<script th:src="@{/js/index.js}"></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
 		            <span class="icon-bar"></span>
 		        </button>
 		        <a class="navbar-brand" href="/">
-		            <span class="glyphicon glyphicon-fire"></span> 
+		            <span class="glyphicon glyphicon-fire"></span>
 		            TIMTEAM
 		        </a>
 		    </div>
@@ -67,7 +67,7 @@
 	        <div class="row">
 	            <div class="col-lg-8 col-lg-offset-2">
 	                <span class="glyphicon glyphicon-apple" style="font-size: 60px"></span>
-	                <h2 class="section-heading">Người có sức khỏe, có hy vọng; và người có hy vọng, có tất cả mọi thứ</h2>
+	                <h2 class="section-heading">Người có sức khỏe là người có hy vọng, có tất cả mọi thứ</h2>
 	                <p class="text-light">Hãy chăm sóc cơ thể của bạn. Đó là nơi duy nhất bạn phải sống</p>
 	            </div>
 	        </div>
@@ -81,11 +81,10 @@
 	                <img class="img-responsive img-circle center-block" th:src="@{img/doibong.jpg}" alt="">
 	            </div>
 	            <div class="col-sm-6">
-	                <h2 class="section-header">162 đội bóng</h2>
+	                <h2 class="section-header">2801 đội bóng</h2>
 	                <p class="lead text-muted">Bạn được phép gửi lời mời đối giao lưu tới nhiều đội cùng 1 lúc mà không cần gọi điện, chờ đợi đối trả lời để tiếp tục hỏi đối tiếp theo.</p>
 	                <a href="#" class="btn btn-primary btn-lg">TÌM ĐỘI</a>
 	            </div>                
-	
 	        </div>
 	    </div>
 	</section>
@@ -101,28 +100,21 @@
 	            <div class="col-sm-6">
 	                <img class="img-responsive img-circle center-block" th:src="@{/img/sanbong.jpg}" alt="">
 	            </div>            
-	
 	        </div>
 	    </div>
 	</section>    
 
 	<div class="container-fluid">
 	    <div class="row promo">
-	        <a href="#">
-	            <div class="col-md-4 promo-item item-1">
-	                <h3>ĐỐI PHỦI</h3>
-	            </div>
-	        </a>
-	        <a href="#">
-	            <div class="col-md-4 promo-item item-2">
-	                <h3>ĐỐI TRUNG BÌNH</h3>
-	            </div>
-	        </a>
-	        <a href="#">
-	            <div class="col-md-4 promo-item item-3">
-	                <h3>ĐỐI MỀM</h3>
-	            </div>
-	        </a>
+            <div class="col-md-4 promo-item item-1">
+                <h3>ĐỐI PHỦI</h3>
+            </div>
+            <div class="col-md-4 promo-item item-2">
+                <h3>ĐỐI TRUNG BÌNH</h3>
+            </div>
+            <div class="col-md-4 promo-item item-3">
+                <h3>ĐỐI MỀM</h3>
+            </div>
 	    </div>
 	</div>
 
@@ -149,43 +141,14 @@
 	    </div>
 	</footer>
 
-	<div class="container modal fade" id="register" role="dialog" style="margin-top: 130px">
-		<div class="form-signin">
-			<h1 class="form-signin-heading text-muted">Tạo tài khoản</h1>
-			<br>
-	        <input name="txtPhoneNumber" type="text" class="form-control" placeholder="Số điện thoại" required="" autofocus="">
-	        <input name="txtEmail" type="text" class="form-control" placeholder="Email" required="" 
-	        style="border-top: none;">
-	        <input name="txtPassword" type="password" class="form-control" placeholder="Mật khẩu" required="" 
-	        style="border-bottom: none; margin-bottom: 0px;">
-	        <input name="txtRePassword" type="password" class="form-control" placeholder="Nhập lại mật khẩu" required="">
-	        <br>
-	        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Đăng kí"/>
-	    </div>
-	</div>
-	<div class="container modal fade" id="login" role="dialog" style="margin-top: 130px">
-	    <div class="form-signin">
-	        <h1 class="form-signin-heading text-muted">Đăng nhập</h1>
-	        <div id="error"></div>
-	        <br>
-	        <input id="txtPhoneNumber" name="txtPhoneNumber" type="text" class="form-control" placeholder="Số điện thoại" autofocus="">
-	        <input id="txtPassword" name="txtPassword" type="password" class="form-control" placeholder="Mật khẩu">
-	        <br>
-	        <input id="btnLogin" class="btn btn-lg btn-primary btn-block" type="submit" value="Đăng nhập"/>
-	    </div>
-	</div>
-	
-	<!-- jQuery  -->
-	<!-- <script th:src="@{/js/jquery-1.11.3.min.js}"></script> -->
+	<div th:replace="fragments/register :: register"></div>
+	<div th:replace="fragments/login :: login"></div>
 	
 	<!-- Bootstrap Core JavaScript  -->
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	
+	<script th:src="@{/ui/js/bootstrap.min.js}"></script>
 	<!-- Plugin JavaScript  -->
-	<script th:src="@{/js/jquery.easing.min.js}"></script>
-	
+	<script th:src="@{/ui/js/jquery.easing.min.js}"></script>
 	<!-- Custom Javascript -->
-	<script th:src="@{/js/custom.js}"></script>
-	
+	<script th:src="@{/ui/js/custom.js}"></script>
 	</body>
 </html>

@@ -1,0 +1,15 @@
+<div th:fragment="login" class="container modal fade" id="login" role="dialog" style="margin-top: 130px">
+    <form>
+        <div class="form-signin">
+            <h1 class="form-signin-heading text-muted">Đăng nhập</h1>
+            <div id="error"></div>
+            <br>
+            <input id="txtPhoneNumberLogin" name="txtPhoneNumberLogin" type="text" class="form-control" required autofocus
+                   placeholder="Số điện thoại">
+            <input id="txtPasswordLogin" name="txtPasswordLogin" type="password" class="form-control" required
+                   placeholder="Mật khẩu">
+            <br>
+            <input id="btnLogin" class="btn btn-lg btn-primary btn-block" type="submit" value="Đăng nhập"/>
+        </div>
+    </form>
+</div>

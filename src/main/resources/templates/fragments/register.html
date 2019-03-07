@@ -1,0 +1,14 @@
+<div th:fragment="register" class="container modal fade" id="register" role="dialog" style="margin-top: 130px">
+	<div class="form-signin">
+		<h1 class="form-signin-heading text-muted">Tạo tài khoản</h1>
+		<br>
+        <input name="txtPhoneNumberRegister" type="text" class="form-control" placeholder="Số điện thoại" required autofocus>
+        <input name="txtEmailRegister" type="text" class="form-control" placeholder="Email" required
+        style="border-top: none;">
+        <input name="txtPasswordRegister" type="password" class="form-control" placeholder="Mật khẩu" required
+        style="border-bottom: none; margin-bottom: 0px;">
+        <input name="txtRePasswordRegister" type="password" class="form-control" placeholder="Nhập lại mật khẩu" required>
+        <br>
+        <input id="btnRegister" class="btn btn-lg btn-primary btn-block" type="submit" value="Đăng kí"/>
+    </div>
+</div>

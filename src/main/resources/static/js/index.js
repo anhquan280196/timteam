@@ -11,7 +11,7 @@ $(document).ready(function () {
             $('#login .modal-body').html(json["data"]);
         });
     });
-    
+
     $('#register').on('show.bs.modal', function (e) {
         /* get data written in data-person-name field */
         var personName = $(e.relatedTarget).data('person-name');
@@ -24,30 +24,64 @@ $(document).ready(function () {
             $('#register .modal-body').html(json["data"]);
         });
     });
-    
-    $('#btnLogin').click(function() {
-    	var phoneNumber = $.trim($('#txtPhoneNumber').val());
-    	var password = $.trim($('#txtPassword').val());
-    	var message = $('#error');
 
-    	if ('' == phoneNumber || '' == password) {
-    		message.css('color', 'red');
-    		message.text('Nhập số điện thoại và mật khẩu');
+    $('#btnLogin').click(function () {
+            var phoneNumber = $.trim($('#txtPhoneNumberLogin').val());
+            var password = $.trim($('#txtPasswordLogin').val());
+            var message = $('#error');
 
-    		return false;
-    	} else {
-    		$.post({
-    			url : '/account/login',
-    			data : {
-    				'txtPhoneNumber' : phoneNumber,
-    				'txtPassword' : password
-    			},
-    			success : function(response) {
-    				
-    			}
-    		});
+            if ('' == phoneNumber || '' == password) {
+                return;
+            } else {
+                $.post({
+                    url: '/account/login',
+                    data: {
+                        'txtPhoneNumber': phoneNumber,
+                        'txtPassword': password
+                    },
+                    success: function (response) {
+                        if (response != null && response != '') {
+                            window.location.replace('/logined');
+                        }
+                        message.css('color', 'red');
+                        message.text('Sai sđt và mật khẩu');
+                    }
+                });
+            }
+        }
+    );
 
-    		return true;
-    	}
-    });
+//    $('#btnRegister').click(function() {
+//    	var phoneNumber = $.trim($('#txtPhoneNumberRegister').val());
+//    	var email = $.trim($('#txtEmailRegister').val());
+//    	var password = $.trim($('#txtPasswordRegister').val());
+//    	var rePassword = $.trim($('#txtRePasswordRegister').val());
+//    	var message = $('#error');
+//    	
+//    	$('#txtPhoneNumber').validity.valid;
+//    	$('#txtEmail').validity.valid;
+//    	$('#txtPassword').validity.valid;
+//    	$('#txtRePassword').validity.valid;
+//    	
+//    	if(password == rePassword){
+//			$.post({
+//				url : '/account/register',
+//				data : {
+//					'txtPhoneNumber' : phoneNumber,
+//					'txtEmail' : email,
+//					'txtPassword' : password
+//				},
+//				success : function(response) {
+//					if(response != null && response != ''){
+//						window.location.replace('/logined');
+//					}
+//					message.css('color', 'red');
+//		    		message.text('Email hoặc số điện thoại đăng kí đã tồn tại');
+//				}
+//			});
+//    	} else {
+//    		message.css('color', 'red');
+//    		message.text('Mật khẩu xác nhận sai');
+//    	}
+//    });
 });
